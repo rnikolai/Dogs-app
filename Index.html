@@ -10,9 +10,7 @@
   }
 
   .img {
-    z-index: 10;
-    height: 1.59in;
-    width: 2.39in;
+    z-index: -1;
   }
 
   * {
@@ -23,8 +21,9 @@
     border: 1px solid black;
     float: left;
     width: 30%;
-    height:200px;
-    margin:10px;
+    height: 500px;
+    margin: 10px;
+
   }
 
   /* Clear floats after the columns */
@@ -34,83 +33,93 @@
     clear: both;
   }
 
-  .row{
-    position:relative;
-    top:500px;
+  .row {
+    position: relative;
+    top: 500px;
+    z-index: 1;
+  }
+
+  .rowim::after{
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  .rowim {
+    position: absolute;
     z-index: 1;
   }
 </style>
 
 <body>
-
-  <h1>Draggable DIV Element</h1>
-
-  <p>Click and hold the mouse button down while moving the DIV element</p>
-
-  <div id="A1" class='mydiv'>
-    <div id="mydivheader" class='mydivheader'>
-      <img class="img" src="Dogs/Hound dog A1.jpg" alt="">
-    </div>
-  </div>
-
-  <div id='A2' class='mydiv'>
-    <div id="mydivheader" class='mydivheader'>
-      <img class="img" src="Dogs/Work dog A2.jpg" alt="">
-    </div>
-  </div>
-
-  <div id='A3' class='mydiv'>
-    <div id="mydivheader" class='mydivheader'>
-      <img class="img" src="Dogs/Toy dog A3 .jpg" alt="">
-    </div>
-  </div>
-
-  <div id='B1' class='mydiv'>
-    <div id="mydivheader" class='mydivheader'>
-      <img class="img" src="Dogs/Hound dog B1.jpg" alt="">
-    </div>
-  </div>
-
-  <div id='B2' class='mydiv'>
-    <div id="mydivheader" class='mydivheader'>
-      <img class="img" src="Dogs/Work dog B2.jpg" alt="">
-    </div>
-  </div>
-
-  <div id='B3' class='mydiv'>
-    <div id="mydivheader" class='mydivheader'>
-      <img class="img" src="Dogs/Toy dog B3.jpg" alt="">
-    </div>
-  </div>
-
-  <div id='C1' class='mydiv'>
-    <div id="mydivheader" class='mydivheader'>
-      <img class="img" src="Dogs/Hound dog C1.jpg" alt="">
-    </div>
-  </div>
-
-  <div id='C2' class='mydiv'>
-    <div id="mydivheader" class='mydivheader'>
-      <img class="img" src="Dogs/Work dog C2.jpg" alt="">
-    </div>
-  </div>
-
-  <div id='C3' class='mydiv'>
-    <div id="mydivheader" class='mydivheader'>
-      <img class="img" src="Dogs/Work dog C3.jpg" alt="">
-    </div>
-  </div>
-
   <div class="row">
     <div class="column"></div>
     <div class="column"></div>
     <div class="column"></div>
   </div>
 
+  <div class="rowim">
+    <div id="A1" class='mydiv'>
+      <div id="mydivheader" class='mydivheader'>
+        <img class="img" src="Dogs/Hound dog A1.jpg" alt="">
+      </div>
+    </div>
+
+    <div id='A2' class='mydiv'>
+      <div id="mydivheader" class='mydivheader'>
+        <img class="img" src="Dogs/Work dog A2.jpg" alt="">
+      </div>
+    </div>
+
+    <div id='A3' class='mydiv'>
+      <div id="mydivheader" class='mydivheader'>
+        <img class="img" src="Dogs/Toy dog A3 .jpg" alt="">
+      </div>
+    </div>
+
+    <div id='B1' class='mydiv'>
+      <div id="mydivheader" class='mydivheader'>
+        <img class="img" src="Dogs/Hound dog B1.jpg" alt="">
+      </div>
+    </div>
+
+    <div id='B2' class='mydiv'>
+      <div id="mydivheader" class='mydivheader'>
+        <img class="img" src="Dogs/Work dog B2.jpg" alt="">
+      </div>
+    </div>
+
+    <div id='B3' class='mydiv'>
+      <div id="mydivheader" class='mydivheader'>
+        <img class="img" src="Dogs/Toy dog B3.jpg" alt="">
+      </div>
+    </div>
+
+    <div id='C1' class='mydiv'>
+      <div id="mydivheader" class='mydivheader'>
+        <img class="img" src="Dogs/Hound dog C1.jpg" alt="">
+      </div>
+    </div>
+
+    <div id='C2' class='mydiv'>
+      <div id="mydivheader" class='mydivheader'>
+        <img class="img" src="Dogs/Work dog C2.jpg" alt="">
+      </div>
+    </div>
+
+    <div id='C3' class='mydiv'>
+      <div id="mydivheader" class='mydivheader'>
+        <img class="img" src="Dogs/Work dog C3.jpg" alt="">
+      </div>
+    </div>
+  </div>
+
+
 
   <script>
     function randomPosition(ele) {
-
+      elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+      elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
     }
 
     //Make the DIV element draggagle:
